@@ -15,12 +15,13 @@ import { RegisterComponent } from './register/register.component';
 import { CommonModule } from '@angular/common';
 import { ErrorInterceptorProvide } from './_services/error.interceptor';
 import { AlertaService } from './_services/alerta.service';
-import { MemberListComponent } from './member-list/member-list.component';
+import { MemberListComponent } from './members/member-list/member-list.component';
 import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
 import { AppRoutes } from './routes';
 import { AuthGuard } from './_guards/auth.guard';
 import { UserService } from './_services/user.service';
+import { MemberCardComponent } from './members/member-card/member-card.component';
 
 
 
@@ -32,7 +33,8 @@ import { UserService } from './_services/user.service';
     RegisterComponent,
     MemberListComponent,
     ListsComponent,
-    MessagesComponent
+    MessagesComponent,
+    MemberCardComponent
   ],
   imports: [
     BrowserModule,
