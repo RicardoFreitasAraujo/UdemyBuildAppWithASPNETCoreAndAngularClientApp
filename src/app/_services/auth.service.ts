@@ -38,4 +38,8 @@ export class AuthService {
     return !this.jwtHelper.isTokenExpired(token); 
   }
 
+  public GetToken(): string {
+    return localStorage.getItem('token');
+  }
+
 }
