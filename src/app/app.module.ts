@@ -25,6 +25,7 @@ import { UserService } from './_services/user.service';
 import { MemberCardComponent } from './members/member-card/member-card.component';
 import { JwtInterceptor,JwtInterceptorProvider } from './_services/jwt.interceptor';
 import { ErrorInterceptorProvide } from './_services/error.interceptor';
+import { MemberDetailComponent } from './members/member-detail/member-detail.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ErrorInterceptorProvide } from './_services/error.interceptor';
     MemberListComponent,
     ListsComponent,
     MessagesComponent,
-    MemberCardComponent
+    MemberCardComponent,
+    MemberDetailComponent
   ],
   imports: [
     BrowserModule,
