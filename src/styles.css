@@ -4,4 +4,22 @@
 @import '../node_modules/font-awesome/css/font-awesome.min.css';
 @import '../node_modules/ngx-toastr/toastr.css';
 
+.tab-panel {
+    border: 1px solid #ddd;
+    padding:10px;
+    border-radius: 4px;
+}
 
+.nav-tabs > li.open, .member-tabset > .nav-tabs > li:hover > a {
+    border-bottom: 4px solid #fbcdcf;
+}
+
+.member-tabset > .nav-tabs > li.open > a, .member-tabset > .nav-tabs > li:hover > a {
+    border: 0;
+    background-color: none !important;
+    color: #333333;
+}
+
+.member-tabset > .nav-tabs > li.open > a > i, .member-tabset > .nav-tabs > li:hover > a > i {
+    color: #a6a6a6;
+}
