@@ -26,6 +26,7 @@ import { JwtInterceptorProvider } from './_services/jwt.interceptor';
 import { ErrorInterceptorProvide } from './_services/error.interceptor';
 import { MemberDetailComponent } from './members/member-detail/member-detail.component';
 import { TabsModule } from 'ngx-bootstrap';
+import { MemberDetailResolver } from './_resolvers/member-detail.resolver';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { TabsModule } from 'ngx-bootstrap';
             UserService,
             AuthGuard,
             JwtInterceptorProvider,
-            ErrorInterceptorProvide
+            ErrorInterceptorProvide,
+            MemberDetailResolver
           ],
   bootstrap: [AppComponent]
 })
