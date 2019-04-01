@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
 import { User } from 'src/app/_models/user';
 import { ActivatedRoute } from '@angular/router';
 import { AlertaService } from 'src/app/_services/alerta.service';
@@ -12,8 +12,15 @@ import { NgForm } from '@angular/forms';
 export class MemberEditComponent implements OnInit {
 
   @ViewChild('editForm') editForm: NgForm;
-
+  
   user: User;
+  public unloadNotification($event: any) {
+    if (this.editForm.dirty) {
+      $event.returnValue = true;
+    }
+  }
+
+  
 
   constructor(private route: ActivatedRoute, private alerta: AlertaService) { }
 
