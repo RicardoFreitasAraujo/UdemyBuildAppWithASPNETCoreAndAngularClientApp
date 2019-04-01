@@ -28,6 +28,8 @@ import { MemberDetailComponent } from './members/member-detail/member-detail.com
 import { TabsModule } from 'ngx-bootstrap';
 import { MemberDetailResolver } from './_resolvers/member-detail.resolver';
 
+import { NgxGalleryModule } from 'ngx-gallery';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +51,8 @@ import { MemberDetailResolver } from './_resolvers/member-detail.resolver';
     ToastrModule.forRoot(),
     BsDropdownModule.forRoot(),
     RouterModule.forRoot(AppRoutes),
-    TabsModule.forRoot()
+    TabsModule.forRoot(),
+    NgxGalleryModule
   ],
   providers: [
             AuthService, 
