@@ -29,6 +29,8 @@ import { TabsModule } from 'ngx-bootstrap';
 import { MemberDetailResolver } from './_resolvers/member-detail.resolver';
 
 import { NgxGalleryModule } from 'ngx-gallery';
+import { MemberEditComponent } from './members/member-edit/member-edit.component';
+import { MemberEditResolver } from './_resolvers/member-edit.resolver';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,8 @@ import { NgxGalleryModule } from 'ngx-gallery';
     ListsComponent,
     MessagesComponent,
     MemberCardComponent,
-    MemberDetailComponent
+    MemberDetailComponent,
+    MemberEditComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +64,8 @@ import { NgxGalleryModule } from 'ngx-gallery';
             AuthGuard,
             JwtInterceptorProvider,
             ErrorInterceptorProvide,
-            MemberDetailResolver
+            MemberDetailResolver,
+            MemberEditResolver
           ],
   bootstrap: [AppComponent]
 })
