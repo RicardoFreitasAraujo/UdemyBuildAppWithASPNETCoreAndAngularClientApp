@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { PathLocationStrategy } from '@angular/common';
 import { Photo } from 'src/app/_models/photo';
 import { FileUploader } from 'ng2-file-upload';
@@ -16,6 +16,7 @@ import { AlertaService } from 'src/app/_services/alerta.service';
 export class PhotoEditorComponent implements OnInit {
 
   @Input() photos: Photo[];
+  @Output() getMemberphotoChange = new EventEmitter<string>();
   uploader: FileUploader;
   hasBaseDropZoneOver = false;
   baseUrl = environment.apiUrl;
@@ -51,10 +52,11 @@ export class PhotoEditorComponent implements OnInit {
     this.uploader.onSuccessItem = (item, response, status, headers) => {
       if (response) {
         const res: Photo = JSON.parse(response);
-        const photo = {
+        
+        const photo: Photo = {
           id: res.id,
           url: res.url,
-          dateAdded: res.dateAdded,
+          date: res.date,
           description: res.description,
           isMain: res.isMain
         };
@@ -71,6 +73,7 @@ export class PhotoEditorComponent implements OnInit {
                       this.currentMainPhoto = this.photos.filter(p => p.isMain === true)[0];
                       this.currentMainPhoto.isMain = false;
                       photo.isMain = true;
+                      this.getMemberphotoChange.emit(photo.url);
                     }, error => {
                       this.alertaService.error(error);
                     });
