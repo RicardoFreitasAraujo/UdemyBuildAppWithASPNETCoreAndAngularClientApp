@@ -3,6 +3,18 @@
   <hr>
 
   <div class="form-group">
+    <label class="control-label" style="margin-right:10px">I am a:</label>
+    <label class="radio-inline">
+      <input type="radio" class="mr-3" value="male" formControlName="gender">Male
+    </label>
+    <label class="radio-inline ml-3">
+        <input type="radio" class="mr-3" value="female" formControlName="gender">Female
+      </label>
+  </div>
+
+
+
+  <div class="form-group">
     <input type="text" 
            [ngClass]=" {'is-invalid': registerForm.get('username').errors && registerForm.get('username').touched} "
            class="form-control" 
@@ -10,6 +22,24 @@
            placeholder="Username">
     <div class="invalid-feedback"> Please choose a username </div>
   </div>
+
+  <div class="form-group">
+    <input type="text" class="form-control" formControlName="knowAs" placeholder="knowAs" >
+  </div>
+
+  <div class="form-group">
+      <input type="date" class="form-control" formControlName="dateOfBirth" placeholder="dateOfBirth" >  
+  </div>
+
+  <div class="form-group">
+      <input type="text" class="form-control" formControlName="city" placeholder="city" >  
+  </div>
+
+  <div class="form-group">
+      <input type="text" class="form-control" formControlName="country" placeholder="country" >  
+  </div>
+
+
 
   <div class="form-group">
       <input type="password" 
@@ -32,7 +62,7 @@
   </div>
 
   <div class="form-group text-center">
-      <button class="btn btn-success" type="submit">Register</button>
+      <button class="btn btn-success" type="submit" [disabled]="!registerForm.valid">Register</button>
       <button class="btn btn-default" type="button" (click)="cancel()">Cancel</button>
   </div>
 
