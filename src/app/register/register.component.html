@@ -3,16 +3,32 @@
   <hr>
 
   <div class="form-group">
-    <input type="text" class="form-control"   formControlName="username" placeholder="Username">
+    <input type="text" 
+           [ngClass]=" {'is-invalid': registerForm.get('username').errors && registerForm.get('username').touched} "
+           class="form-control" 
+           formControlName="username" 
+           placeholder="Username">
+    <div class="invalid-feedback"> Please choose a username </div>
   </div>
 
   <div class="form-group">
-      <input type="password" class="form-control"  formControlName="password" placeholder="Password">
+      <input type="password" 
+             [ngClass]=" {'is-invalid': registerForm.get('password').errors && registerForm.get('password').touched } "
+             class="form-control"  
+             formControlName="password" 
+             placeholder="Password">
+      <div class="invalid-feedback" *ngIf="registerForm.get('password').hasError('required') && registerForm.get('password').touched"> Please choose a password </div>
+      <div class="invalid-feedback" *ngIf="registerForm.get('password').hasError('minlength') && registerForm.get('password').touched"> minlength </div>
+      <div class="invalid-feedback" *ngIf="registerForm.get('password').hasError('maxlength') && registerForm.get('password').touched"> maxlength </div>
   </div>
 
   <div class="form-group">
-      <input type="password" class="form-control"  formControlName="confirmPassword" 
+      <input type="password" 
+             [ngClass]=" {'is-invalid': registerForm.get('confirmPassword').errors && registerForm.get('confirmPassword').touched } "
+             class="form-control"  
+             formControlName="confirmPassword" 
       placeholder="Confirm Password">
+      <div class="invalid-feedback" *ngIf="registerForm.get('confirmPassword').hasError('required') && registerForm.get('confirmPassword').touched"> Please choose a password </div>
   </div>
 
   <div class="form-group text-center">
