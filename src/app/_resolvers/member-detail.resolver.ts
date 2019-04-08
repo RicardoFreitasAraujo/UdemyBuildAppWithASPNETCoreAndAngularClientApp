@@ -4,7 +4,7 @@ import { Resolve, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@a
 import { UserService } from '../_services/user.service';
 import { AlertaService } from '../_services/alerta.service';
 import { Observable, of } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +23,10 @@ export class MemberDetailResolver implements Resolve<User>  {
             this.alerta.error('Problem retrieving data');
             this.router.navigate(['/members']);
             return of(null);
+          }),
+          map( f => {
+            console.log(f);
+            return f;
           })
         );
   }
