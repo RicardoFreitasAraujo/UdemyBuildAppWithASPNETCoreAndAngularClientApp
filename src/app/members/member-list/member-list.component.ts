@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../../_models/user';
 import { UserService } from '../../_services/user.service';
 import { AlertaService } from '../../_services/alerta.service';
+import { PaginatedResult } from 'src/app/_models/pagination';
 
 @Component({
   selector: 'app-member-list',
@@ -10,6 +11,8 @@ import { AlertaService } from '../../_services/alerta.service';
 })
 export class MemberListComponent implements OnInit {
 
+  pageNumber = 1;
+  pageSize = 5;
   users: User[];
 
   constructor(private userService: UserService, private alerta:AlertaService) { }
@@ -19,11 +22,10 @@ export class MemberListComponent implements OnInit {
   }
 
   public LoadUser() {
-    this.userService.getUsers().subscribe((users: User[]) => {
-      this.users = users;
-    }, error => {
-      this.alerta.error(error);
-    });
+    this.userService.getUsers(this.pageNumber, this.pageSize).subscribe( (retorno: any) => {
+        console.info(retorno);
+        this.users = retorno.result;
+    })
   }
 
 }
