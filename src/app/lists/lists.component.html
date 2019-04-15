@@ -1,3 +1,14 @@
-<p>
-  lists works!
-</p>
+<div class="container">
+    <div class="row">
+      <div class="col-lg-2 col-md-3 col-sm-6" *ngFor="let user of users">
+          <app-member-card [user]="user"></app-member-card>
+      </div>
+    </div>
+  </div>
+  
+  <div class="d-flex justify-content-center">
+      <pagination [boundaryLinks]="true" 
+                  [totalItems]="50"
+        previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+      </pagination>
+  </div>
